@@ -21,7 +21,7 @@ public class MathCalcInput {
         return number;
     }
 
-    //ввод пользователем натурального положительного числа
+    //ввод пользователем натурального числа
     public int getIntPos(String message) {
         System.out.println("Введите " + message);
         Scanner scan = new Scanner(System.in);
@@ -41,7 +41,7 @@ public class MathCalcInput {
                 while (!scan.hasNextInt()) {
                     scan.next();
                     System.out.println("Некорректный ввод!");
-                    System.out.print("Введите натуральное положительное число: ");
+                    System.out.print("Введите натуральное число: ");
                 }
                 number = scan.nextInt();
             }
