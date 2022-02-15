@@ -1,32 +1,25 @@
 package by.epam.jwd.les02;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
 public class MathCalcLogic {
-
-    /*
-     *Вычисляет значение выражения по формуле:
-     *((b + √(b^2 + 4ac)) / 2a) − a^3c + c^(−2)
-     */
-    public double function02(double a, double b, double c) {
-        double z;
-        z = b + Math.sqrt(b * b + 4 * a * c);
-        z /= 2 * a;
-        z += Math.pow(b, -2) - Math.pow(a, 3) * c;
-        return z;
-    }
 
     //возводит в квадрат неотрицательные эелементы массива и в четвертую степень - отрицательные
     public double[] squareArray(double[] arr) {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] >= 0) {
-                arr[i] = round(Math.pow(arr[i], 2), 2);
+                arr[i] = Math.pow(arr[i], 2);
             } else {
-                arr[i] = round(Math.pow(arr[i], 4), 2);
+                arr[i] = Math.pow(arr[i], 4);
             }
         }
         return arr;
+    }
+
+    //находит сумму большего и меньшего из трех чисел
+    public double findSumOfMaxMin(double a, double b, double c) {
+        double min = Math.min(Math.min(a, b), c);
+        double max = Math.max(Math.max(a, b), c);
+        double sum = min + max;
+        return sum;
     }
 
     //находит сумму элементов массива, которые кратны данному К
@@ -65,13 +58,5 @@ public class MathCalcLogic {
             }
         }
         return matrix;
-    }
-
-    //округляет вещественное число до poz позиций после запятой
-    public double round(double number, int poz) {
-        if (poz < 0) throw new IllegalArgumentException();
-        BigDecimal bd = new BigDecimal(Double.toString(number));
-        bd = bd.setScale(poz, RoundingMode.HALF_UP);
-        return bd.doubleValue();
     }
 }

@@ -2,8 +2,6 @@ package by.epam.jwd.les02;
 
 import java.util.Scanner;
 import java.util.Random;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 public class MathCalcInput {
 
@@ -66,7 +64,7 @@ public class MathCalcInput {
         Random rand = new Random();
         double[] arr = new double[k];
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = round(rand.nextDouble() * n * 2 - n, 2);
+            arr[i] =rand.nextDouble() * n * 2 - n;
         }
         return arr;
     }
@@ -80,13 +78,4 @@ public class MathCalcInput {
         }
         return arr;
     }
-
-    //округляет вещественное число до poz позиций после запятой
-    public double round(double number, int poz) {
-        if (poz < 0) throw new IllegalArgumentException();
-        BigDecimal bd = new BigDecimal(Double.toString(number));
-        bd = bd.setScale(poz, RoundingMode.HALF_UP);
-        return bd.doubleValue();
-    }
-
 }
