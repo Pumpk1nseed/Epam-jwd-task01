@@ -9,7 +9,7 @@ public class MathCalcInput {
 
     //ввод пользователем вещественного числа
     public double getDouble(String message) {
-                System.out.println("Введите " + message);
+        System.out.println("Введите " + message);
         Scanner scan = new Scanner(System.in);
         double number;
         while (!scan.hasNextDouble()) {
@@ -64,7 +64,7 @@ public class MathCalcInput {
         Random rand = new Random();
         double[] arr = new double[k];
         for (int i = 0; i < arr.length; i++) {
-            arr[i] =rand.nextDouble() * n * 2 - n;
+            arr[i] = rand.nextDouble() * n * 2 - n;
         }
         return arr;
     }
