@@ -36,25 +36,17 @@ public class MathCalcLogic {
     /*
      *заполняет квадратную матрицу порядка n по заданному образцу(n - четное):
      *(1  2 ... n)
-     *(...       )
      *(n n-1 ... 1)
+     *(1  2 ... n)
+     *(n n-1 ... 1)
+     *(...       )
      */
     public int[][] createSquareMatrix(int m) {
         int[][] matrix = new int[m][m];
-        for (int i = 0; i < matrix.length; i += 2) {
-            int k = 1;
+        for (int i = 0; i < matrix.length; i = i+2) {
             for (int j = 0; j < matrix[i].length; j++) {
-                matrix[i][j] = k;
-                k++;
-            }
-        }
-
-        for (int i = 1; i < matrix.length; i += 2) {
-            int k = matrix.length;
-            ;
-            for (int j = 0; j < matrix[i].length; j++) {
-                matrix[i][j] = k;
-                k--;
+                matrix[i][j] = j + 1;
+                matrix[i + 1][j] = matrix[i].length - j;
             }
         }
         return matrix;
